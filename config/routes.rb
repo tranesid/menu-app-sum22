@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   # all of the route in here are going to be prepend with /api
   # controller need to be in the api folder in the controllers
   namespace :api do 
-    resources :dishes
+    # resources :dishes
+    get '/dishes', to: 'dishes#index' # return all dishes
+    post '/dishes', to: 'dishes#create' # create a dish
+    get '/dishes/:id', to:'dishes#show' # return 1 dish
+    put '/dishes/:id', to:'dishes#update' # update 1 dish
+    delete '/dishes/:id', to:'dishes#destroy' # destroy 1 dishs
   end
 end

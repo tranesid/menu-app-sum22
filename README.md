@@ -76,8 +76,32 @@ $ rails g controller foods
   # controller need to be in the api folder in the controllers
   namespace :api do 
     # resources :dishes
-    get '/dishes', to: 'dishes#index'
+    get '/dishes', to: 'dishes#index' # return all dishes
+    post '/dishes', to: 'dishes#create' # create a dish
+    get '/dishes/:id' to:'dishes#show' # return 1 dish
+    put '/dishes/:id' to:'dishes#update' # update 1 dish
+    delete '/dishes/:id' to:'dishes#destroy' # destroy 1 dish
+
   end
 end
 ```
-https://api.twitter.com/2/tweets/counts/all
+
+### Seeding DB
+this is useful to have some default dummy
+```
+rails db:seed
+```
+add faker to gemfile to add more realistic data
+
+```ruby
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+```
+
+* remember when adding a gem.  Stop your server and run `bundle`
+* rember if using faker to add this to seeds
+file
+```ruby
+require 'faker'
+```
+
+
