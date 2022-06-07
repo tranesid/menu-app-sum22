@@ -104,4 +104,36 @@ file
 require 'faker'
 ```
 
+# setup react
+in your rails directory
+
+```
+# nothing about calling this client just as accurate term
+$ yarn create react-app client
+$ cd client
+$ yarn add axios react-router
+$ yarn start
+```
+
+in package.json
+```
+...
+"proxy":"http://localhost:3001"
+...
+```
+* this all assuming your are running your rails s on port 3001
+
+setup react router
+```javascript
+import {BrowserRouter} from 'react-router-dom'
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+```
+
+
 
