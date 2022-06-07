@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  resources :foods
+  # resources :foods
   
   # this is just a semi common convention
   # all of the route in here are going to be prepend with /api
