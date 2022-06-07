@@ -25,4 +25,4 @@ end
 # put '/dishes/:id',  # update 1 dish {name(required), price, descrption}
 # delete '/dishes/:id',  # destroy 1 dish
 
-#LOTS OF CHANGES BUT NOT DONE WITH FEATURE
+#LOTS OF CHANGES FEATURE IS DONE
