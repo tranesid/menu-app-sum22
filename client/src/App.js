@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 import DishForm from "./DishForm";
+import UpdateDishForm from "./UpdateDishForm";
 
 // # get '/dishes',  # return all dishes
 // # post '/dishes',  # create a dish {name(required), price, descrption}
@@ -14,6 +15,7 @@ function App() {
   const [dishes, setDishes] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [name, setName] = useState('asdfasdf')
 
   // load data on mount
   useEffect(() => {
@@ -39,6 +41,22 @@ function App() {
     }
   };
 
+  const deleteDish = async (id)=>{
+     try{
+       let res = await axios.delete(`/api/dishes/${id}`)
+       // if successful remove from UI (assume this will work)
+       let newDishes = dishes.filter(d=> d.id !== res.data.id)
+       setDishes(newDishes)
+     } catch(err){
+         alert('err occured')
+     }
+  }
+
+  const updateDish = (dish) =>{
+     let updatedDishes = dishes.map(d=> d.id === dish.id ? dish : d)
+     setDishes(updatedDishes)
+  }
+
   const renderDishes = () => {
     if (loading) {
       return <p>loading</p>;
@@ -51,6 +69,8 @@ function App() {
         <div key={d.id} style={{margin:'20px', border:'1px solid'}}>
           <h1>{d.name}: ${d.price}</h1>
           <p>{d.description}</p>
+          <button onClick={()=> deleteDish(d.id)}>delete</button>
+          <UpdateDishForm {...d} updateDish={updateDish} />
         </div>
       )
     })

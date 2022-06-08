@@ -1,5 +1,29 @@
 # Rails walk through
 
+# instructions on cloning a dpl react/rails repo
+```
+$ git clone <ssh-link> project-folder-name
+$ cd project-folder-name
+
+### RAILS ###
+
+$ bundle (install ruby gems)
+
+$ rails db:create db:migrate * db:seed
+
+$ rails s -p 3001 (start server)
+
+### REACT ###
+//!!!CD INTO CLIENT
+
+$ cd client
+$ yarn
+$ yarn start
+
+### GITHUB ###
+//add contributors
+```
+
 ### setup
 
 - to create a new project
